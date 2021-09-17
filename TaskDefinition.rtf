@@ -1,0 +1,124 @@
+{\rtf1\ansi\ansicpg1250\deff0\nouicompat\deflang1045{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red17\green85\blue204;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red217\green217\blue217;\red255\green255\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sb480\sa120\sl288\slmult0\fs40\lang21 Source2Sea - Backend Coding Challenge\par
+
+\pard\sl276\slmult1\fs21 Welcome to Source2Sea\rquote s backend coding challenge! The following document is split into four main sections:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb220\sl23\slmult0\cf1\ul Your task\cf0\ulnone  - This section outlines the problem we would like you to solve.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl23\slmult0\cf1\ul\fs21 Our expectations\cf0\ulnone  - Here we lay out our expectations so it's clear where you should focus your time.\cf2\fs22\par
+{\pntext\f2\'B7\tab}\cf1\ul\fs21 How we review\cf0\ulnone  - We want to be open about how we're assessing our candidate's solutions, this helps us maintain consistency as well as provides you with further clarity about what we are looking for.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa220\sl23\slmult0\cf1\ul\fs21 Questions we may ask\cf0\ulnone  - Here we share some pointers around the kind of questions we may ask during the assessment.\ul\par
+
+\pard\sb360\sa80\sl0\slmult0\ulnone\fs34 Your task\par
+
+\pard\sl276\slmult1\fs21 We would like you to build a simplified e-commerce API with a single endpoint that performs a checkout action. The single endpoint should take a list of watches and return the total cost.\par
+In terms of programming languages, we mostly work with Kotlin and Java, if you feel that you have the experience to build a solution in either of those languages then please do. Otherwise, we are happy for you to build a solution using a language and framework that you feel best showcases your ability.\par
+
+\pard\sb280\sa80\sl0\slmult0\cf2\fs26 Watch catalogue\par
+
+\pard\sl276\slmult1\cf0\fs21 Below is a catalogue of four watches and their associated prices:\par
+\par
+\trowd\trgaph160\trrh400\trpaddl160\trpaddr160\trpaddfl3\trpaddfr3
+\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx1230\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx2835\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx4155\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx5385 
+\pard\intbl\sl276\slmult1\qr\b Watch ID\b0\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\b\f0\fs21 Watch Name\b0\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\qr\b\f0\fs21 Unit Price\b0\f1\fs22\cell\b\f0\fs21 Discount\b0\f1\fs22\cell\row\trowd\trgaph160\trrh420\trpaddl160\trpaddr160\trpaddfl3\trpaddfr3
+\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx1230\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx2835\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx4155\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx5385 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 001\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\f0\fs21 Rolex\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 100\f1\fs22\cell\f0\fs21 3 for 200\f1\fs22\cell\row\trowd\trgaph160\trrh420\trpaddl160\trpaddr160\trpaddfl3\trpaddfr3
+\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx1230\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx2835\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx4155\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx5385 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 002\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\f0\fs21 Michael Kors\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 80\f1\fs22\cell\f0\fs21 2 for 120\f1\fs22\cell\row\trowd\trgaph160\trrh420\trpaddl160\trpaddr160\trpaddfl3\trpaddfr3
+\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx1230\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx2835\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx4155\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx5385 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 003\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\f0\fs21 Swatch\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 50\f1\fs22\cell\cell\row\trowd\trgaph160\trrh420\trpaddl160\trpaddr160\trpaddfl3\trpaddfr3
+\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx1230\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx2835\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx4155\clcfpat2\clcbpat6\clbrdrl\brdrw16\brdrs\brdrcf5\clbrdrt\brdrw16\brdrs\brdrcf5\clbrdrr\brdrw16\brdrs\brdrcf5\clbrdrb\brdrw16\brdrs\brdrcf5 \cellx5385 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 004\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\f0\fs21 Casio\f1\fs22\cell 
+\pard\intbl\sl276\slmult1\qr\f0\fs21 30\f1\fs22\cell\cell\row 
+\pard\sl276\slmult1\f0\fs21\par
+There are a few requirements worth noting here:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb220\sl23\slmult0 The first two products have a possible discount. As an example, if the user attempts to checkout three or six Rolex watches then they will receive the discount price once or twice, respectively.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl23\slmult0\cf0\fs21 There is no limit to the number of items or combinations of watches a user can checkout.\cf2\fs22\par
+{\pntext\f2\'B7\tab}\cf0\fs21 There is no limit to the number of times a discount can be used.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa220\sl23\slmult0\cf0\fs21 Similarly, a user can checkout a single item if they wish.\cf2\fs22\par
+
+\pard\sb280\sa80\sl0\slmult0\fs26 Endpoint reference\par
+
+\pard\sl276\slmult1\cf0\fs21 As a further guideline here's an endpoint definition that you can use to design your API endpoint.\par
+
+\pard\sb240\sa40\sl0\slmult0\cf2\b Request\par
+
+\pard\sl276\slmult1\cf0\b0 POST {{\field{\*\fldinst{HYPERLINK http://localhost:8080/checkout }}{\fldrslt{http://localhost:8080/checkout\ul0\cf0}}}}\f0\fs21\par
+\par
+# Headers\par
+Accept: application/json\par
+Content-Type: application/json\par
+\par
+# Body\par
+[\par
+  "001",\par
+  "002",\par
+  "001",\par
+  "004",\par
+  "003"\par
+]\par
+\par
+
+\pard\sb240\sa40\sl0\slmult0\cf2\b Response\par
+
+\pard\sl276\slmult1\cf0\b0 # Headers\par
+Content-Type: application/json\par
+\par
+# Body\par
+\par
+\{ "price": 360 \}\par
+
+\pard\sb360\sa80\sl0\slmult0\fs34 Our expectations\par
+
+\pard\sl276\slmult1\fs21 We expect this task to take 2-4 hours but we purposefully don't specify a hard time-limit. This is because we don't want this task to take over your weekend, nor do we want to impose an unnecessarily stressful deadline.\par
+How you approach the problem is more important to us than completing the challenge, therefore we expect you to include the following:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb220\sl23\slmult0 A \b README\b0  that documents how to set up and run the application, how you approached it and what you would improve.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl23\slmult0\cf0\fs21 Whether you are submitting your solution via GitHub or compressing the solution into one zip file we would appreciate it if you include the \b Git commit history\b0 . This provides us with a view on how you break down problems and how you work.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa220\sl23\slmult0\cf0\b\fs21 Automated testing\b0  is an important part of how we work here on the Source2Sea Engineering Team and we expect you to include some in your solution.\cf2\fs22\par
+
+\pard\sb360\sa80\sl0\slmult0\cf0\fs34 How we review\par
+
+\pard\sl276\slmult1\fs21 When reviewing your solution we try to make sure we\rquote re consistent in our evaluation by following five core themes:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb220\sl23\slmult0 Correctness - We don\rquote t expect you to handle all the possible edge cases but we do expect the solution to adhere to the core requirements laid out in this document.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl23\slmult0\cf0\fs21 Documentation - For us, this is more about including a clear and concise README and the commit history and less about covering the codebase in comments.\cf2\fs22\par
+{\pntext\f2\'B7\tab}\cf0\fs21 Testing - We also evaluate your approach to automated testing and whether there's a reasonable mix of functional (or integration) tests and unit tests.\cf2\fs22\par
+{\pntext\f2\'B7\tab}\cf0\fs21 Readability - Writing code in a team requires having empathy for how other team members will interpret that code. Here we look for things like duplication, method names, variable names and consistency.\cf2\fs22\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa220\sl23\slmult0\cf0\fs21 Application architecture - We look at whether the solution follows a conventional architecture based on the language and framework. We also expect to see some modularisation with a few separate components that have clear responsibilities.\cf2\fs22\par
+
+\pard\sb360\sa80\sl0\slmult0\cf0\fs34 Questions we may ask\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent360{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1\fs22 What framework(s) did you use to implement the app? Why did you choose them?\par
+{\pntext\f2\'B7\tab}What would you add or do differently if you had more time?\par
+{\pntext\f2\'B7\tab}How would you implement CI/CD?\par
+{\pntext\f2\'B7\tab}Where would you deploy this app and why? Which option do you prefer over others?\par
+{\pntext\f2\'B7\tab}What testing did (or would) you do and why?\par
+
+\pard\sl276\slmult1\fs21\par
+Thank you for reading and thanks for taking part in our interview process. We look forward to receiving your solution!\par
+\par
+- The Engineering Team at Source2Sea\par
+\fs22\par
+\par
+}
+ 
