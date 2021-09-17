@@ -4,24 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class WatchTest {
     @Test
-    void validDiscountQuantityNull() {
-        new Watch("id", "name", BigDecimal.valueOf(100), null, null);
+    void validDiscountNull() {
+        Watch watch = new Watch("003", "Swatch", BigDecimal.valueOf(50), null);
+
+        assertThat(watch).hasNoNullFieldsOrPropertiesExcept("discount");
     }
 
     @Test
-    void validDiscountQuantity2() {
-        new Watch("id", "name", BigDecimal.valueOf(100), 2, BigDecimal.valueOf(150));
-    }
+    void validDiscountNotNull() {
+        Discount discount = new Discount(3, BigDecimal.valueOf(200));
+        Watch watch = new Watch("001", "Rolex", BigDecimal.valueOf(100), discount);
 
-    @Test
-    void invalidDiscountQuantity1() {
-        assertThatThrownBy(() ->
-            new Watch("id", "name", BigDecimal.valueOf(100), 1, BigDecimal.valueOf(150)))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("Invalid discount quantity: 1. It must be less than 2 !");
+        assertThat(watch).hasNoNullFieldsOrProperties();
     }
 }
