@@ -16,3 +16,9 @@ For details about the task see TaskDefinition.rtf in the same folder as this REA
 #### Downloaded and installed IntelliJ 2021.2.2 for windows.
 #### Created new public repository on github.
 #### Generation of access token and first commit to repo with README.md and TaskDefinition.rtf
+
+### First domain classes - 1h
+#### Creating gradle project
+#### Creating Watch in domain package with unit tests
+#### Creating Discount in domain package with unit tests
+
