@@ -3,6 +3,8 @@ package com.wrist.source2sea.domain;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -80,4 +82,31 @@ public class WatchPriceCalculatorTest {
         assertThat(price).isEqualTo(BigDecimal.valueOf(900));
     }
 
+    @Test
+    void calculatePriceEmptyMap() {
+        BigDecimal price = watchPriceCalculator.calculatePrice(Collections.emptyMap());
+
+        assertThat(price).isEqualTo(BigDecimal.ZERO);
+    }
+
+    @Test
+    void calculatePriceThirteenRolexesOnly() {
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13));
+
+        assertThat(price).isEqualTo(BigDecimal.valueOf(900));
+    }
+
+    @Test
+    void calculatePriceZeroRolexesZeroSwatches() {
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 0, SWATCH, 0));
+
+        assertThat(price).isEqualTo(BigDecimal.ZERO);
+    }
+
+    @Test
+    void calculatePriceThirteenRolexesSixSwatches() {
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13, SWATCH, 6));
+
+        assertThat(price).isEqualTo(BigDecimal.valueOf(1200));
+    }
 }
