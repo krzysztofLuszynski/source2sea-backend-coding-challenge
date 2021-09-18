@@ -7,16 +7,9 @@ public class WatchPriceCalculator {
     private static final String QUANTITY_LESS_THEN_ZERO_MESSAGE = "Quantity: %d must be greater or equal to 0 !";
 
     public BigDecimal calculatePrice(Map<Watch, Integer> watchToQuantity) {
-        BigDecimal totalPrice = BigDecimal.ZERO;
-
-        for (Watch watch: watchToQuantity.keySet()) {
-            int quantity = watchToQuantity.get(watch);
-            BigDecimal priceForOneWatchType = calculatePrice(watch, quantity);
-
-            totalPrice = totalPrice.add(priceForOneWatchType);
-        }
-
-        return totalPrice;
+        return watchToQuantity.entrySet().stream()
+            .map((entry) -> calculatePrice(entry.getKey(), entry.getValue()))
+            .reduce(BigDecimal.ZERO, (firstPrice, secondPrice) -> firstPrice.add(secondPrice));
     }
 
     BigDecimal calculatePrice(Watch watch, int quantity) {
