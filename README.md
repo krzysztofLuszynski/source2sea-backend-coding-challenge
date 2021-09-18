@@ -18,7 +18,11 @@ For details about the task see TaskDefinition.rtf in the same folder as this REA
 #### Generation of access token and first commit to repo with README.md and TaskDefinition.rtf
 
 ### First domain classes - 1h
-#### Creating gradle project
-#### Creating Watch in domain package with unit tests
-#### Creating Discount in domain package with unit tests
+#### Created gradle project
+#### Created Watch in domain package with unit tests
+#### Created Discount in domain package with unit tests
+
+### Domain - calculation of watch prices - 30mins
+#### Created WatchPriceCalculator for one watch type with unit tests
+#### Created method for many watch types with unit tests
 
