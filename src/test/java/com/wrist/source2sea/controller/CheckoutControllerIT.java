@@ -1,5 +1,7 @@
 package com.wrist.source2sea.controller;
 
+import com.wrist.source2sea.repository.WatchRepository;
+import com.wrist.source2sea.service.WatchPriceCalculator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -17,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
-@ContextConfiguration(classes = {CheckoutController.class})
+@ContextConfiguration(classes = {CheckoutController.class, WatchRepository.class, WatchPriceCalculator.class})
 @WebMvcTest
 public class CheckoutControllerIT {
     @Autowired
@@ -50,6 +52,6 @@ public class CheckoutControllerIT {
                 .andReturn();
 
         BigDecimal price = new BigDecimal(result.getResponse().getContentAsString());
-        assertThat(price).isEqualTo(BigDecimal.ZERO);
+        assertThat(price).isEqualTo(BigDecimal.valueOf(360));
     }
 }

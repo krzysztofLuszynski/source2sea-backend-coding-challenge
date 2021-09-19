@@ -2,10 +2,12 @@ package com.wrist.source2sea.service;
 
 import com.wrist.source2sea.domain.Discount;
 import com.wrist.source2sea.domain.Watch;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
+@Service
 public class WatchPriceCalculator {
     private static final String QUANTITY_LESS_THEN_ZERO_MESSAGE = "Quantity: %d must be greater or equal to 0 !";
 

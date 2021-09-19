@@ -2,10 +2,12 @@ package com.wrist.source2sea.repository;
 
 import com.wrist.source2sea.domain.Discount;
 import com.wrist.source2sea.domain.Watch;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
+@Repository
 public class WatchRepository {
     private static final String INVALID_WATCH_ID_MESSAGE = "Invalid watch id %s !";
 
