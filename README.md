@@ -4,8 +4,16 @@ Application for Source2Sea backend coding challenge.
 For details about the task see TaskDefinition.rtf in the same folder as this README.md
 
 ## Installation
+```bash
+# Run from main project directory
+gradle bootRun
+```
 
 ## Usage
+
+```bash
+curl --header "Content-Type: application/json" --request POST --data "[\"001\", \"002\", \"001\", \"004\", \"003\"]"  http://localhost:8080/checkout
+```
 
 ## Timelog
 
