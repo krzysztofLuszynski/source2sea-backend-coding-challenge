@@ -15,7 +15,7 @@ public class WatchRepository {
             new Discount(3L, BigDecimal.valueOf(200)));
     private static final Watch MICHAEL_KORS = new Watch("002", "Michael Kors", BigDecimal.valueOf(80),
             new Discount(2L, BigDecimal.valueOf(120)));
-    private static final Watch SWATCH = new Watch("003", "Michael Kors", BigDecimal.valueOf(50), null);
+    private static final Watch SWATCH = new Watch("003", "Swatch", BigDecimal.valueOf(50), null);
     private static final Watch CASIO = new Watch("004", "Casio", BigDecimal.valueOf(30), null);
 
     private static final Map<String, Watch> WATCHES = Map.of(
