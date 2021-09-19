@@ -12,7 +12,10 @@ gradle bootRun
 ## Usage
 
 ```bash
+# Example from task definition
 curl --header "Content-Type: application/json" --request POST --data "[\"001\", \"002\", \"001\", \"004\", \"003\"]"  http://localhost:8080/checkout
+# Example of validation with http status 400
+curl --header "Content-Type: application/json" --request POST --data "[\"005\"]"  http://localhost:8080/checkout
 ```
 
 ## Timelog
@@ -46,6 +49,5 @@ curl --header "Content-Type: application/json" --request POST --data "[\"001\", 
 ### TODO
 #### Change to use JPA Repository with initial data instead of in memory repository
 #### Change to return http status 400 when providing non existing watch id
-#### Add logging
 #### Add continous integration of this project on some free CI service
 

@@ -5,9 +5,11 @@ import com.wrist.source2sea.repository.WatchRepository;
 import com.wrist.source2sea.service.WatchPriceCalculator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -32,11 +34,15 @@ public class CheckoutController {
 
         log.debug("IdToCount: {}", idToCount);
 
-        Map<Watch, Long> watchToCount = idToCount.entrySet().stream()
-                .collect(toMap(
-                        (entry) -> watchRepository.getById(entry.getKey()),
-                        Map.Entry::getValue));
+        try {
+            Map<Watch, Long> watchToCount = idToCount.entrySet().stream()
+                    .collect(toMap(
+                            (entry) -> watchRepository.getById(entry.getKey()),
+                            Map.Entry::getValue));
 
-        return watchPriceCalculator.calculatePrice(watchToCount);
+            return watchPriceCalculator.calculatePrice(watchToCount);
+        } catch (IllegalArgumentException exception) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage(), exception);
+        }
     }
 }
