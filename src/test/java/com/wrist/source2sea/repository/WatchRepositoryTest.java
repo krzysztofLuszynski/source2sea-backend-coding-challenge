@@ -29,7 +29,7 @@ public class WatchRepositoryTest {
                 .hasFieldOrPropertyWithValue("name", "Rolex")
                 .hasFieldOrPropertyWithValue("unitPrice", BigDecimal.valueOf(100))
                 .extracting("discount")
-                .hasFieldOrPropertyWithValue("quantity", 3)
+                .hasFieldOrPropertyWithValue("quantity", 3L)
                 .hasFieldOrPropertyWithValue("priceForQuantity", BigDecimal.valueOf(200));
     }
 }

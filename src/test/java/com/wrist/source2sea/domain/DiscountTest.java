@@ -11,7 +11,7 @@ public class DiscountTest {
     @Test
     void invalidQuantity1() {
         assertThatThrownBy(() ->
-                new Discount(1, BigDecimal.valueOf(200)))
+                new Discount(1L, BigDecimal.valueOf(200)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Invalid discount quantity: 1. It must be less than 2 !");
     }
@@ -19,14 +19,14 @@ public class DiscountTest {
     @Test
     void invalidPriceForQuantityZero() {
         assertThatThrownBy(() ->
-                new Discount(2, BigDecimal.ZERO))
+                new Discount(2L, BigDecimal.ZERO))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Invalid discount price for quantity: 0,00. It must be greater than 0 !");
     }
 
     @Test
     void validQuantity() {
-        Discount discount = new Discount(3, BigDecimal.valueOf(200));
+        Discount discount = new Discount(3L, BigDecimal.valueOf(200));
 
         assertThat(discount).hasNoNullFieldsOrProperties();
     }

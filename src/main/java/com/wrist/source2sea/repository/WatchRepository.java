@@ -10,9 +10,9 @@ public class WatchRepository {
     private static final String INVALID_WATCH_ID_MESSAGE = "Invalid watch id %s !";
 
     private static final Watch ROLEX = new Watch("001", "Rolex", BigDecimal.valueOf(100),
-            new Discount(3, BigDecimal.valueOf(200)));
+            new Discount(3L, BigDecimal.valueOf(200)));
     private static final Watch MICHAEL_KORS = new Watch("002", "Michael Kors", BigDecimal.valueOf(80),
-            new Discount(3, BigDecimal.valueOf(120)));
+            new Discount(2L, BigDecimal.valueOf(120)));
     private static final Watch SWATCH = new Watch("003", "Michael Kors", BigDecimal.valueOf(50), null);
     private static final Watch CASIO = new Watch("004", "Casio", BigDecimal.valueOf(30), null);
 

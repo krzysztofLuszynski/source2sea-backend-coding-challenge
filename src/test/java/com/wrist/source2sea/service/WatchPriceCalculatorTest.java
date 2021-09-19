@@ -2,7 +2,6 @@ package com.wrist.source2sea.service;
 
 import com.wrist.source2sea.domain.Discount;
 import com.wrist.source2sea.domain.Watch;
-import com.wrist.source2sea.service.WatchPriceCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -14,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class WatchPriceCalculatorTest {
     private static final Watch ROLEX = new Watch("001", "Rolex", BigDecimal.valueOf(100),
-            new Discount(3, BigDecimal.valueOf(200)));
+            new Discount(3L, BigDecimal.valueOf(200)));
 
     private static final Watch SWATCH = new Watch("003", "Swatch", BigDecimal.valueOf(50), null);
 
@@ -94,21 +93,21 @@ public class WatchPriceCalculatorTest {
 
     @Test
     void calculatePriceThirteenRolexesOnly() {
-        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13));
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13L));
 
         assertThat(price).isEqualTo(BigDecimal.valueOf(900));
     }
 
     @Test
     void calculatePriceZeroRolexesZeroSwatches() {
-        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 0, SWATCH, 0));
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 0L, SWATCH, 0L));
 
         assertThat(price).isEqualTo(BigDecimal.ZERO);
     }
 
     @Test
     void calculatePriceThirteenRolexesSixSwatches() {
-        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13, SWATCH, 6));
+        BigDecimal price = watchPriceCalculator.calculatePrice(Map.of(ROLEX, 13L, SWATCH, 6L));
 
         assertThat(price).isEqualTo(BigDecimal.valueOf(1200));
     }

@@ -16,7 +16,7 @@ public class WatchTest {
 
     @Test
     void validDiscountNotNull() {
-        Discount discount = new Discount(3, BigDecimal.valueOf(200));
+        Discount discount = new Discount(3L, BigDecimal.valueOf(200));
         Watch watch = new Watch("001", "Rolex", BigDecimal.valueOf(100), discount);
 
         assertThat(watch).hasNoNullFieldsOrProperties();
