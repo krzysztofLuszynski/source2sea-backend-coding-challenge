@@ -3,6 +3,7 @@ package com.wrist.source2sea.controller;
 import com.wrist.source2sea.domain.Watch;
 import com.wrist.source2sea.repository.WatchRepository;
 import com.wrist.source2sea.service.WatchPriceCalculator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import java.util.Map;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.*;
 
+@Slf4j
 @RestController
 public class CheckoutController {
     @Autowired
@@ -27,6 +29,8 @@ public class CheckoutController {
     BigDecimal checkout(@RequestBody List<String> watchIds) {
         Map<String, Long> idToCount = watchIds.stream()
                 .collect(groupingBy(identity(), counting()));
+
+        log.debug("IdToCount: {}", idToCount);
 
         Map<Watch, Long> watchToCount = idToCount.entrySet().stream()
                 .collect(toMap(
