@@ -37,4 +37,19 @@ public class CheckoutControllerIT {
         BigDecimal price = new BigDecimal(result.getResponse().getContentAsString());
         assertThat(price).isEqualTo(BigDecimal.ZERO);
     }
+
+    @Test
+    void checkoutFiveWatchIds() throws Exception {
+        MvcResult result = mvc.perform(
+                        post("/checkout")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("[\"001\", \"002\", \"001\", \"004\", \"003\"]"))
+                .andExpect(status().isOk())
+                .andExpect(content()
+                        .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        BigDecimal price = new BigDecimal(result.getResponse().getContentAsString());
+        assertThat(price).isEqualTo(BigDecimal.ZERO);
+    }
 }
