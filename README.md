@@ -46,8 +46,11 @@ curl --header "Content-Type: application/json" --request POST --data "[\"005\"]"
 #### Added repository in memory with unit tests
 #### Connected endpoint with repository and calculator
 
+### Small fixes - 1h
+#### Added logging
+#### Changed to return http status 400 when providing non existing watch id - spent some time on test problem
+
 ### TODO
 #### Change to use JPA Repository with initial data instead of in memory repository
-#### Change to return http status 400 when providing non existing watch id
 #### Add continous integration of this project on some free CI service
 
