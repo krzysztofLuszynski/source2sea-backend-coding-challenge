@@ -1,4 +1,7 @@
-package com.wrist.source2sea.domain;
+package com.wrist.source2sea.service;
+
+import com.wrist.source2sea.domain.Discount;
+import com.wrist.source2sea.domain.Watch;
 
 import java.math.BigDecimal;
 import java.util.Map;

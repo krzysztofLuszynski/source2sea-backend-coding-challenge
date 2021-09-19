@@ -1,5 +1,8 @@
-package com.wrist.source2sea.domain;
+package com.wrist.source2sea.service;
 
+import com.wrist.source2sea.domain.Discount;
+import com.wrist.source2sea.domain.Watch;
+import com.wrist.source2sea.service.WatchPriceCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
