@@ -39,3 +39,13 @@ curl --header "Content-Type: application/json" --request POST --data "[\"001\", 
 #### Added checkout POST endpoint
 #### Added basic IT tests for CheckoutController
 
+### First version of working solution - 1h
+#### Added repository in memory with unit tests
+#### Connected endpoint with repository and calculator
+
+### TODO
+#### Change to use JPA Repository with initial data instead of in memory repository
+#### Change to return http status 400 when providing non existing watch id
+#### Add logging
+#### Add continous integration of this project on some free CI service
+
