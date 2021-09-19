@@ -2,7 +2,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.writs.source2see.domain'
+group = 'com.writs.source2see'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
