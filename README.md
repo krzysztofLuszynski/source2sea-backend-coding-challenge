@@ -34,3 +34,8 @@ curl --header "Content-Type: application/json" --request POST --data "[\"001\", 
 #### Created WatchPriceCalculator for one watch type with unit tests
 #### Created method for many watch types with unit tests
 
+### Exposed rest service - 1h 30mins
+#### Moved project to spring boot application
+#### Added checkout POST endpoint
+#### Added basic IT tests for CheckoutController
+
