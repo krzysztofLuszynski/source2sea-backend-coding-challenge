@@ -10,10 +10,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.web.util.NestedServletException;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,6 +26,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CheckoutControllerIT {
     @Autowired
     private MockMvc mvc;
+
+    @Test
+    void checkoutNotExistingWatch() {
+        // TODO: change to http status 400 when using jpa
+        assertThatThrownBy(() -> {
+            mvc.perform(
+                post("/checkout")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("[\"005\"]"));
+        }).isInstanceOf(NestedServletException.class)
+                .hasCauseInstanceOf(IllegalArgumentException.class)
+                .hasRootCauseMessage("Invalid watch id 005 !");
+    }
 
     @Test
     void checkoutEmptyWatchIds() throws Exception {
