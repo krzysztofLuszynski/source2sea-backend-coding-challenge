@@ -7,7 +7,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
+import java.math.BigDecimal;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,11 +25,16 @@ public class CheckoutControllerIT {
 
     @Test
     void checkoutEmptyWatchIds() throws Exception {
-        mvc.perform(post("/checkout")
+        MvcResult result = mvc.perform(
+                post("/checkout")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("[]"))
                 .andExpect(status().isOk())
                 .andExpect(content()
-                        .contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
+                        .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        BigDecimal price = new BigDecimal(result.getResponse().getContentAsString());
+        assertThat(price).isEqualTo(BigDecimal.ZERO);
     }
 }
