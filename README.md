@@ -50,7 +50,8 @@ curl --header "Content-Type: application/json" --request POST --data "[\"005\"]"
 #### Added logging
 #### Changed to return http status 400 when providing non existing watch id - spent some time on test problem
 
-### TODO
+### Added JPA and H2 database - 1h
 #### Change to use JPA Repository with initial data instead of in memory repository
-#### Add continous integration of this project on some free CI service
+#### Changed id of Watch from String to Long
+#### Updated tests
 
