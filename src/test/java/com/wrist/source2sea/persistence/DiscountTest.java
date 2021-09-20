@@ -1,4 +1,4 @@
-package com.wrist.source2sea.domain;
+package com.wrist.source2sea.persistence;
 
 import org.junit.jupiter.api.Test;
 

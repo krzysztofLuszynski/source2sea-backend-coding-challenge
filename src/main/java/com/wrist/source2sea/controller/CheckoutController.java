@@ -1,10 +1,9 @@
 package com.wrist.source2sea.controller;
 
-import com.wrist.source2sea.domain.Watch;
+import com.wrist.source2sea.persistence.Watch;
 import com.wrist.source2sea.repository.WatchRepository;
 import com.wrist.source2sea.service.WatchPriceCalculator;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,11 +20,14 @@ import static java.util.stream.Collectors.*;
 @Slf4j
 @RestController
 public class CheckoutController {
-    @Autowired
-    private WatchRepository watchRepository;
+    private final WatchRepository watchRepository;
 
-    @Autowired
-    private WatchPriceCalculator watchPriceCalculator;
+    private final WatchPriceCalculator watchPriceCalculator;
+
+    public CheckoutController(WatchRepository watchRepository, WatchPriceCalculator watchPriceCalculator) {
+        this.watchRepository = watchRepository;
+        this.watchPriceCalculator = watchPriceCalculator;
+    }
 
     @PostMapping("/checkout")
     BigDecimal checkout(@RequestBody List<String> watchIds) {
@@ -37,10 +39,12 @@ public class CheckoutController {
         try {
             Map<Watch, Long> watchToCount = idToCount.entrySet().stream()
                     .collect(toMap(
-                            (entry) -> watchRepository.getById(entry.getKey()),
+                            (entry) -> watchRepository.getById(Long.valueOf(entry.getKey())),
                             Map.Entry::getValue));
 
-            return watchPriceCalculator.calculatePrice(watchToCount);
+            // setScale because for example input output should be 360
+            // however I think with money it is better to use BigDecimal and return 360.00
+            return watchPriceCalculator.calculatePrice(watchToCount).setScale(0);
         } catch (IllegalArgumentException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage(), exception);
         }

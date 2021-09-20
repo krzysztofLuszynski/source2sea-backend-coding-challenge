@@ -1,16 +1,29 @@
-package com.wrist.source2sea.domain;
+package com.wrist.source2sea.persistence;
 
-import lombok.Value;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
-@Value
+@Embeddable
+@Getter
+@ToString
+@EqualsAndHashCode
 public class Discount {
     private static final String INVALID_QUANTITY_MESSAGE = "Invalid discount quantity: %d. It must be less than 2 !";
     private static final String INVALID_PRICE_FOR_QUANTITY = "Invalid discount price for quantity: %.2f. It must be greater than 0 !";
 
     Long quantity;
+
+    @Column(name="price_for_quantity")
     BigDecimal priceForQuantity;
+
+    // Needed for JPA only
+    Discount() {
+    }
 
     public Discount(Long quantity, BigDecimal priceForQuantity) {
         assertDiscountQuantity(quantity);

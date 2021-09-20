@@ -1,14 +1,10 @@
 package com.wrist.source2sea.controller;
 
-import com.wrist.source2sea.repository.WatchRepository;
-import com.wrist.source2sea.service.WatchPriceCalculator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -19,12 +15,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@SpringBootTest
 @AutoConfigureMockMvc
-@ContextConfiguration(classes = {
-                CheckoutController.class,
-                WatchRepository.class,
-                WatchPriceCalculator.class})
 public class CheckoutControllerIT {
     @Autowired
     private MockMvc mvc;
@@ -39,11 +31,7 @@ public class CheckoutControllerIT {
                     .andReturn();
 
         String errorMessage = result.getResponse().getContentAsString();
-        assertThat(errorMessage).isEqualTo("");
-
-        // TODO: can not read application.properties in the test, wanted to pass message to response body
-        // this is working in the application, not working in the tests
-        // assertThat(errorMessage).isEqualTo("Invalid watch id 005 !");
+        assertThat(errorMessage).isEqualTo("Unable to find com.wrist.source2sea.persistence.Watch with id 5");
     }
 
     @Test

@@ -1,7 +1,7 @@
 package com.wrist.source2sea.service;
 
-import com.wrist.source2sea.domain.Discount;
-import com.wrist.source2sea.domain.Watch;
+import com.wrist.source2sea.persistence.Discount;
+import com.wrist.source2sea.persistence.Watch;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -12,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class WatchPriceCalculatorTest {
-    private static final Watch ROLEX = new Watch("001", "Rolex", BigDecimal.valueOf(100),
+    private static final Watch ROLEX = new Watch("Rolex", BigDecimal.valueOf(100),
             new Discount(3L, BigDecimal.valueOf(200)));
 
-    private static final Watch SWATCH = new Watch("003", "Swatch", BigDecimal.valueOf(50), null);
+    private static final Watch SWATCH = new Watch("Swatch", BigDecimal.valueOf(50), null);
 
 
     private final WatchPriceCalculator watchPriceCalculator = new WatchPriceCalculator();

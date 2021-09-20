@@ -1,7 +1,7 @@
 package com.wrist.source2sea.service;
 
-import com.wrist.source2sea.domain.Discount;
-import com.wrist.source2sea.domain.Watch;
+import com.wrist.source2sea.persistence.Discount;
+import com.wrist.source2sea.persistence.Watch;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
