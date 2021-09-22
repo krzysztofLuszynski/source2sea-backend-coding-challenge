@@ -5,7 +5,9 @@ For details about the task see TaskDefinition.rtf in the same folder as this REA
 
 ## Installation
 ```bash
-# Run from main project directory
+# Run from main project directory to build
+gradle build
+# Run from main project directory to run
 gradle bootRun
 ```
 
